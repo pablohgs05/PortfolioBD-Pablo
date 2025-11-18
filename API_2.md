@@ -328,11 +328,11 @@ Estou preparado para aplicar esses conhecimentos em projetos futuros que envolva
 <table align="center" style="font-family: roboto; font-size: 14px; text-align: left;">
   <tr>
     <td>1º Semestre:</td>
-    <td><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_1.md">(API 1)</a></td>
+    <td><a href="https://github.com/Porygon-Users/API-Porygon/tree/main">Sistema de Gerenciamento Acadêmico PBLTeX - Python + CLI</a></td>
   </tr>
   <tr>
     <td>2º Semestre:</td>
-    <td><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_2.md">Sistema de Análise e Gestão de Dados Climáticos</a></td>
+    <td><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_2.md">Sistema de Análise e Gestão de Dados Climáticos - ViraCorp</a></td>
   </tr>
   <tr>
     <td>3º Semestre:</td>
@@ -340,15 +340,15 @@ Estou preparado para aplicar esses conhecimentos em projetos futuros que envolva
   </tr>
   <tr>
     <td>4º Semestre:</td>
-    <td><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_4.md">(API 4)</a></td>
+    <td><a href="https://github.com/PorygonAPI/Porygon3">Sistema de Processamento e Análise de Imagens Agrícolas - Visiona</a></td>
   </tr>
   <tr>
     <td>5º Semestre:</td>
-    <td><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_5.md">(API 5)</a></td>
+    <td><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_5.md">API 5</a></td>
   </tr>
   <tr>
     <td>6º Semestre:</td>
-    <td><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_6.md">(API 6)</a></td>
+    <td><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_6.md">API 6</a></td>
   </tr>
 </table>
 
