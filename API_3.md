@@ -336,22 +336,22 @@ Estou pronto para aplicar estas competências em projetos cada vez mais complexo
 ## Navegação entre Projetos 🔗
 
 <p align="justify" style="font-family:roboto;">
-  <li><a href="https://github.com/BryanRibeiro/Portfolio-Projetos/blob/main/API_1.md">1º Semestre: (API 1)</a></li>
+  <li><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_1.md">1º Semestre: (API 1)</a></li>
 </p>
 <p align="justify" style="font-family:roboto;">
-  <li><a href="https://github.com/BryanRibeiro/Portfolio-Projetos/blob/main/API_2.md">2º Semestre: (API 2)</a></li>
+  <li><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_2.md">2º Semestre: (API 2)</a></li>
 </p>
 <p align="justify" style="font-family:roboto;">
-  <li><a href="https://github.com/SEU-USUARIO/Portfolio-Projetos/blob/main/API_3_Semestre.md">3º Semestre: Ferramenta de Captura e Armazenamento de Notícias Estratégicas</a></li>
+  <li><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_3.md">3º Semestre: GSW - Ferramenta de Captura e Armazenamento de Notícias Estratégicas</a></li>
 </p>
 <p align="justify" style="font-family:roboto;">
-  <li><a href="https://github.com/BryanRibeiro/Portfolio-Projetos/blob/main/API_4.md">4º Semestre: (API 4)</a></li>
+  <li><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_4.md">4º Semestre: (API 4)</a></li>
 </p>
 <p align="justify" style="font-family:roboto;">
-  <li><a href="https://github.com/BryanRibeiro/Portfolio-Projetos/blob/main/API_5.md">5º Semestre: (API 5)</a></li>
+  <li><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_5.md">5º Semestre: (API 5)</a></li>
 </p>
 <p align="justify" style="font-family:roboto;">
-  <li><a href="https://github.com/BryanRibeiro/Portfolio-Projetos/blob/main/API_6.md">6º Semestre: (API 6)</a></li>
+  <li><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_6.md">6º Semestre: (API 6)</a></li>
 </p>
 
 </div>
