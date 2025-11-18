@@ -10,7 +10,7 @@
 
 **Sistema de Gerenciamento Acadêmico para Metodologia PBL (Problem Based Learning)**
 
-O projeto consiste em um sistema de informação em linha de comando (CLI) desenvolvido em Python para apoiar a instituição PBLTeX, especializada em cursos práticos aplicando a metodologia Problem Based Learning. O sistema gerencia turmas, grupos de alunos, professores, ciclos de entrega e scores parciais, permitindo o cálculo do FEE (Fator de Ensino Evolutivo), a geração de relatórios consolidados e a exportação de dados para análise educacional, tudo executado inteiramente no terminal da IDE sem necessidade de interface web.
+O projeto consiste em um sistema de informação em linha de comando (CLI) desenvolvido em Python para apoiar a instituição PBLTeX, especializada em cursos práticos aplicando a metodologia Problem Based Learning. O sistema gerencia turmas, grupos de alunos, professores, ciclos de entrega e scores parciais, permitindo o cálculo do FEE (Fator de Ensino Evolutivo), a geração de relatórios consolidados e a exportação de dados para análise educacional, tudo executado inteiramente no terminal da IDE sem necessidade de interface web. Os dados são armazenados em arquivos Excel, permitindo fácil manipulação e compartilhamento.
 
 ## Parceiros Acadêmicos 🎓
 
@@ -22,26 +22,26 @@ O projeto consiste em um sistema de informação em linha de comando (CLI) desen
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original-wordmark.svg" width="100" height="100" alt="Python"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" width="100" height="100" alt="MySQL"/>
+  <img src="https://cdn-icons-png.flaticon.com/512/732/732220.png" width="100" height="100" alt="Microsoft Excel"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original-wordmark.svg" width="100" height="100" alt="GitHub"/>
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original-wordmark.svg" width="100" height="100" alt="Git"/>
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original-wordmark.svg" width="100" height="100" alt="VS Code"/>
+  <img src="https://cdn.worldvectorlogo.com/logos/trello.svg" width="100" height="100" alt="Trello"/>
 </div>
 
 ### Descrição das Tecnologias
 
-- **[Python](https://www.python.org/)**: Linguagem de programação interpretada, dinâmica e altamente legível, utilizada para desenvolver toda a lógica de negócio do sistema. Python foi escolhido por sua simplicidade e eficiência no prototipagem rápida de soluções educacionais.
+- **[Python](https://www.python.org/)**: Linguagem de programação interpretada, dinâmica e altamente legível, utilizada para desenvolver toda a lógica de negócio do sistema. Python foi escolhido por sua simplicidade e eficiência no prototipagem rápida de soluções educacionais, com suporte excelente para manipulação de dados.
 
-- **[MySQL](https://www.mysql.com/)**: Sistema de gerenciamento de banco de dados relacional de código aberto, utilizado para armazenar de forma estruturada informações sobre alunos, professores, turmas, grupos, ciclos de entrega, scores parciais e relatórios consolidados.
+- **[Microsoft Excel](https://www.microsoft.com/pt-br/microsoft-365/excel)**: Utilizado como base de dados para armazenar e manipular as informações do sistema. Os arquivos .xlsx servem como repositório de dados, permitindo importação e exportação de informações sobre alunos, turmas, ciclos, scores e relatórios consolidados.
+
+- **[GitHub](https://github.com/)**: Plataforma de hospedagem de repositórios Git utilizada para armazenar o código-fonte do projeto, facilitando a colaboração entre os membros da equipe, controle de versão e documentação do projeto.
 
 - **[Git](https://git-scm.com/)**: Sistema de controle de versão distribuído utilizado para gerenciar o código-fonte do projeto, permitindo colaboração eficiente entre os membros da equipe através de commits, branches e pull requests.
 
 - **[VS Code](https://code.visualstudio.com/)**: Editor de código-fonte leve e poderoso, utilizado para desenvolvimento, depuração e execução do código Python diretamente no terminal integrado da IDE.
 
-- **[Trello](https://trello.com/)**: Ferramenta de gerenciamento de projetos utilizada para organizar tarefas, sprints e acompanhamento do progresso do desenvolvimento em tempo real.
-
-- **[Microsoft Teams](https://www.microsoft.com/pt-br/microsoft-teams/compare-microsoft-teams-options)**: Plataforma de comunicação e colaboração utilizada para reuniões de sprint, daily standups e discussões técnicas da equipe.
-
-- **[Canva](https://www.canva.com/)**: Ferramenta de design utilizada para criar apresentações visuais, mockups e documentação gráfica do projeto.
+- **[Trello](https://trello.com/)**: Ferramenta de gerenciamento de projetos utilizada para organizar tarefas, sprints e acompanhamento do progresso do desenvolvimento em tempo real, permitindo uma visão clara das responsabilidades de cada membro da equipe.
 
 ---
 
@@ -151,75 +151,106 @@ class MenuPrincipal:
 
 </details>
 
-### Integração com Banco de Dados MySQL
+### Integração com Arquivos Excel
 
-Implementei a camada de acesso a dados que conecta a aplicação Python com o banco de dados MySQL. Desenvolvi:
-- Módulo de conexão com tratamento de erros
-- Operações CRUD (Create, Read, Update, Delete) para todas as entidades
-- Queries otimizadas para cálculos de agregação (somas, médias, contagens)
-- Transações para garantir consistência de dados
+Implementei a camada de acesso a dados que conecta a aplicação Python com arquivos Excel. Desenvolvi:
+- Módulo de leitura e escrita de arquivos .xlsx utilizando bibliotecas como openpyxl
+- Operações CRUD (Create, Read, Update, Delete) para todas as entidades armazenadas em Excel
+- Importação de dados em massa a partir de arquivos Excel
+- Exportação de relatórios e dados consolidados em formato Excel
+- Tratamento de erros e validação de integridade de dados
 
 <details>
-  <summary>📝 Exemplo: Classe de Acesso a Dados</summary>
+  <summary>📝 Exemplo: Classe de Acesso a Dados com Excel</summary>
 
 ```python
-import mysql.connector
-from mysql.connector import Error
+import openpyxl
+from openpyxl.utils import get_column_letter
 
-class DatabaseConnection:
-    def __init__(self, host='localhost', user='root', password='', database='pbltex'):
-        self.host = host
-        self.user = user
-        self.password = password
-        self.database = database
-        self.connection = None
+class ExcelDataManager:
+    def __init__(self, arquivo_excel='dados_pbltex.xlsx'):
+        self.arquivo = arquivo_excel
+        self.workbook = None
     
     def conectar(self):
         try:
-            self.connection = mysql.connector.connect(
-                host=self.host,
-                user=self.user,
-                password=self.password,
-                database=self.database
-            )
-            if self.connection.is_connected():
-                print("✅ Conectado ao banco de dados com sucesso!")
-                return True
-        except Error as e:
-            print(f"❌ Erro ao conectar: {e}")
-            return False
-    
-    def executar_query(self, query, params=None):
-        try:
-            cursor = self.connection.cursor()
-            if params:
-                cursor.execute(query, params)
-            else:
-                cursor.execute(query)
-            self.connection.commit()
+            self.workbook = openpyxl.load_workbook(self.arquivo)
+            print("✅ Conectado ao arquivo Excel com sucesso!")
             return True
-        except Error as e:
-            print(f"❌ Erro ao executar query: {e}")
+        except Exception as e:
+            print(f"❌ Erro ao conectar ao arquivo: {e}")
             return False
     
-    def obter_dados(self, query, params=None):
+    def obter_dados(self, nome_aba, filtro=None):
         try:
-            cursor = self.connection.cursor(dictionary=True)
-            if params:
-                cursor.execute(query, params)
-            else:
-                cursor.execute(query)
-            resultado = cursor.fetchall()
-            cursor.close()
-            return resultado
-        except Error as e:
+            worksheet = self.workbook[nome_aba]
+            dados = []
+            
+            for row in worksheet.iter_rows(min_row=2, values_only=True):
+                if row[0] is not None:  # Ignora linhas vazias
+                    dados.append(row)
+            
+            return dados
+        except Exception as e:
             print(f"❌ Erro ao obter dados: {e}")
             return None
     
+    def inserir_dados(self, nome_aba, dados):
+        try:
+            worksheet = self.workbook[nome_aba]
+            ultima_linha = worksheet.max_row + 1
+            
+            for col_idx, valor in enumerate(dados, 1):
+                worksheet.cell(row=ultima_linha, column=col_idx, value=valor)
+            
+            self.workbook.save(self.arquivo)
+            print("✅ Dados inseridos com sucesso!")
+            return True
+        except Exception as e:
+            print(f"❌ Erro ao inserir dados: {e}")
+            return False
+    
+    def atualizar_dados(self, nome_aba, linha, dados):
+        try:
+            worksheet = self.workbook[nome_aba]
+            
+            for col_idx, valor in enumerate(dados, 1):
+                worksheet.cell(row=linha, column=col_idx, value=valor)
+            
+            self.workbook.save(self.arquivo)
+            print("✅ Dados atualizados com sucesso!")
+            return True
+        except Exception as e:
+            print(f"❌ Erro ao atualizar dados: {e}")
+            return False
+    
+    def exportar_relatorio(self, nome_arquivo, dados_relatorio):
+        try:
+            novo_workbook = openpyxl.Workbook()
+            worksheet = novo_workbook.active
+            worksheet.title = "Relatório"
+            
+            # Cabeçalho
+            cabecalho = list(dados_relatorio[0].keys())
+            for col_idx, titulo in enumerate(cabecalho, 1):
+                worksheet.cell(row=1, column=col_idx, value=titulo)
+            
+            # Dados
+            for row_idx, registro in enumerate(dados_relatorio, 2):
+                for col_idx, valor in enumerate(registro.values(), 1):
+                    worksheet.cell(row=row_idx, column=col_idx, value=valor)
+            
+            novo_workbook.save(nome_arquivo)
+            print(f"✅ Relatório exportado para {nome_arquivo} com sucesso!")
+            return True
+        except Exception as e:
+            print(f"❌ Erro ao exportar relatório: {e}")
+            return False
+    
     def desconectar(self):
-        if self.connection and self.connection.is_connected():
-            self.connection.close()
-            print("✅ Desconectado do banco de dados.")
+        if self.workbook:
+            self.workbook.close()
+            print("✅ Desconectado do arquivo Excel.")
 ```
 
 </details>
@@ -229,7 +260,7 @@ class DatabaseConnection:
 Implementei funcionalidades para gerar relatórios consolidados em diferentes formatos:
 - Relatórios por turma com listagem de alunos, grupos e scores
 - Cálculo e exibição do Fator de Ensino Evolutivo (FEE) por aluno e turma
-- Exportação de dados consolidados para CSV, permitindo análise posterior em ferramentas externas
+- Exportação de dados consolidados para Excel, permitindo análise posterior em ferramentas externas
 - Relatórios de feedback dos professores com consolidação de avaliações
 
 <details>
@@ -237,78 +268,64 @@ Implementei funcionalidades para gerar relatórios consolidados em diferentes fo
 
 ```python
 class RelatorioService:
-    def __init__(self, db_connection):
-        self.db = db_connection
+    def __init__(self, excel_manager):
+        self.excel_manager = excel_manager
     
     def gerar_relatorio_turma(self, turma_id):
-        query = """
-            SELECT a.id, a.nome, g.nome as grupo, 
-                   AVG(s.valor) as media_scores,
-                   COUNT(s.id) as quantidade_scores
-            FROM alunos a
-            LEFT JOIN grupos g ON a.grupo_id = g.id
-            LEFT JOIN scores s ON a.id = s.aluno_id
-            WHERE a.turma_id = %s
-            GROUP BY a.id, a.nome, g.nome
-            ORDER BY a.nome
-        """
-        
-        alunos = self.db.obter_dados(query, (turma_id,))
+        # Obter dados da turma
+        alunos = self.excel_manager.obter_dados('Alunos')
+        scores = self.excel_manager.obter_dados('Scores')
         
         print("\n" + "="*70)
         print("RELATÓRIO DE TURMA")
         print("="*70)
         
-        if alunos:
-            for aluno in alunos:
-                fee = self.calcular_fee(aluno['media_scores'], aluno['quantidade_scores'])
-                print(f"Aluno: {aluno['nome']}")
-                print(f"Grupo: {aluno['grupo'] or 'Não atribuído'}")
-                print(f"Média de Scores: {aluno['media_scores']:.2f}")
+        for aluno in alunos:
+            if aluno[2] == turma_id:  # Filtra por turma
+                media_scores = self._calcular_media_scores(aluno[0], scores)
+                fee = self.calcular_fee(media_scores)
+                
+                print(f"Aluno: {aluno[1]}")
+                print(f"Grupo: {aluno[3] or 'Não atribuído'}")
+                print(f"Média de Scores: {media_scores:.2f}")
                 print(f"FEE (Fator de Ensino Evolutivo): {fee:.2f}")
                 print("-" * 70)
-        else:
-            print("Nenhum aluno encontrado para esta turma.")
     
-    def calcular_fee(self, media_scores, quantidade_scores):
+    def calcular_fee(self, media_scores):
         # Cálculo do FEE baseado em média ponderada
-        if quantidade_scores == 0:
-            return 0
-        return (media_scores * quantidade_scores) / 100
+        return (media_scores * 10) / 100 if media_scores > 0 else 0
     
-    def exportar_dados_csv(self, turma_id, nome_arquivo):
-        import csv
+    def _calcular_media_scores(self, aluno_id, scores):
+        total = 0
+        contador = 0
         
-        query = """
-            SELECT a.id, a.nome, a.email, g.nome as grupo, 
-                   AVG(s.valor) as media_scores
-            FROM alunos a
-            LEFT JOIN grupos g ON a.grupo_id = g.id
-            LEFT JOIN scores s ON a.id = s.aluno_id
-            WHERE a.turma_id = %s
-            GROUP BY a.id
-        """
+        for score in scores:
+            if score[0] == aluno_id:
+                total += score[2]
+                contador += 1
         
-        alunos = self.db.obter_dados(query, (turma_id,))
+        return total / contador if contador > 0 else 0
+    
+    def exportar_relatorio_excel(self, turma_id, nome_arquivo):
+        alunos = self.excel_manager.obter_dados('Alunos')
+        scores = self.excel_manager.obter_dados('Scores')
         
-        if alunos:
-            with open(nome_arquivo, 'w', newline='', encoding='utf-8') as csvfile:
-                fieldnames = ['ID', 'Nome', 'Email', 'Grupo', 'Média de Scores']
-                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        dados_relatorio = []
+        
+        for aluno in alunos:
+            if aluno[2] == turma_id:
+                media = self._calcular_media_scores(aluno[0], scores)
+                fee = self.calcular_fee(media)
                 
-                writer.writeheader()
-                for aluno in alunos:
-                    writer.writerow({
-                        'ID': aluno['id'],
-                        'Nome': aluno['nome'],
-                        'Email': aluno['email'],
-                        'Grupo': aluno['grupo'] or 'N/A',
-                        'Média de Scores': f"{aluno['media_scores']:.2f}" if aluno['media_scores'] else "N/A"
-                    })
-            
-            print(f"✅ Dados exportados para {nome_arquivo} com sucesso!")
-        else:
-            print("❌ Nenhum dado para exportar.")
+                dados_relatorio.append({
+                    'ID': aluno[0],
+                    'Nome': aluno[1],
+                    'Grupo': aluno[3] or 'N/A',
+                    'Média de Scores': f"{media:.2f}",
+                    'FEE': f"{fee:.2f}"
+                })
+        
+        self.excel_manager.exportar_relatorio(nome_arquivo, dados_relatorio)
 ```
 
 </details>
@@ -332,14 +349,14 @@ Este projeto foi transformador para minha formação como desenvolvedor, proporc
 
 Meu primeiro contato profundo com Python consolidou meu entendimento de programação orientada a objetos, tipagem dinâmica, estruturas de dados (listas, dicionários, tuplas) e manipulação de exceções. Aprendi a escrever código Python idiomático e eficiente.
 
-### Integração com Banco de Dados
+### Manipulação de Dados com Excel
 
-Trabalhar com MySQL através de Python me ensinou conceitos importantes de:
-- Conexão segura com banco de dados
-- Prevenção de SQL injection
-- Otimização de queries
-- Transações e consistência de dados
-- Modelagem relacional aplicada
+Trabalhar com arquivos Excel através de Python me ensinou:
+- Leitura e escrita de arquivos .xlsx
+- Navegação entre abas e células
+- Validação de dados em planilhas
+- Exportação e importação de dados em massa
+- Tratamento de erros na manipulação de arquivos
 
 ### Desenvolvimento de Interface CLI
 
@@ -347,7 +364,7 @@ Desenvolver uma interface de linha de comando intuitiva e responsiva me preparou
 
 ### Projeto e Arquitetura de Software
 
-Participei da arquitetura de um sistema com múltiplas camadas (lógica, banco de dados, interface), aprendendo princípios de separação de responsabilidades, modularidade e reutilização de código.
+Participei da arquitetura de um sistema com múltiplas camadas (lógica, acesso a dados, interface), aprendendo princípios de separação de responsabilidades, modularidade e reutilização de código.
 
 ### Metodologia Ágil (Scrum)
 
@@ -366,8 +383,8 @@ O sistema PBLTeX apresentou requisitos educacionais específicos (cálculo de FE
 | Tecnologia/Metodologia | Proficiência | Classificação |
 |------------------------|--------------|---------------|
 | Python | ⭐⭐⭐⭐☆ | Sei fazer com ajuda |
-| MySQL | ⭐⭐⭐⭐☆ | Sei fazer com ajuda |
-| SQL (Consultas e JOINs) | ⭐⭐⭐⭐☆ | Sei fazer com ajuda |
+| Microsoft Excel | ⭐⭐⭐⭐☆ | Sei fazer com ajuda |
+| Manipulação de Arquivos Excel (.xlsx) | ⭐⭐⭐⭐⭐ | Sei fazer com autonomia |
 | Programação Orientada a Objetos | ⭐⭐⭐⭐☆ | Sei fazer com ajuda |
 | Interface CLI (Command Line) | ⭐⭐⭐⭐⭐ | Sei fazer com autonomia |
 | Git/Versionamento | ⭐⭐⭐⭐⭐ | Sei fazer com autonomia |
@@ -380,11 +397,11 @@ O sistema PBLTeX apresentou requisitos educacionais específicos (cálculo de FE
 
 | Habilidade | Descrição |
 |-----------|-----------|
-| **Resolução de Problemas Complexos** | Implementei soluções para requisitos educacionais específicos (cálculo de FEE, gerenciamento de ciclos) e integração com banco de dados. |
+| **Resolução de Problemas Complexos** | Implementei soluções para requisitos educacionais específicos (cálculo de FEE, gerenciamento de ciclos) e integração com dados em Excel. |
 | **Pensamento Lógico** | Estruturei a lógica de negócio de forma clara e modular, facilitando manutenção e extensão do sistema. |
 | **Comunicação Técnica** | Participei de reuniões de sprint, explicando implementações técnicas e recebendo feedback de stakeholders. |
 | **Trabalho em Equipe** | Colaborei com outros desenvolvedores na integração de código e resolução de conflitos no Git. |
-| **Adaptabilidade** | Aprendi Python, MySQL e conceitos de metodologia Scrum durante o projeto. |
+| **Adaptabilidade** | Aprendi Python, manipulação de Excel e conceitos de metodologia Scrum durante o projeto. |
 | **Atenção a Detalhes** | Implementei validações rigorosas para garantir integridade de dados no sistema. |
 | **Gestão de Tempo** | Organizei tarefas dentro das sprints para cumprir prazos e entregar incrementos funcionais. |
 
@@ -394,13 +411,13 @@ O sistema PBLTeX apresentou requisitos educacionais específicos (cálculo de FE
 
 Minha contribuição foi distribuída entre as quatro sprints:
 
-**Sprint 1**: Implementação da estrutura base do projeto, criação de classes para alunos e professores, desenvolvimento da interface de menu inicial e integração básica com MySQL.
+**Sprint 1**: Implementação da estrutura base do projeto, criação de classes para alunos e professores, desenvolvimento da interface de menu inicial e integração básica com arquivos Excel.
 
 **Sprint 2**: Desenvolvimento de funcionalidades de gerenciamento de turmas e grupos, implementação de validações de dados e refatoração do código para melhor modularidade.
 
 **Sprint 3**: Implementação da lógica de atribuição de scores e feedbacks, desenvolvimento de relatórios de alunos e cálculo de estatísticas descritivas.
 
-**Sprint 4**: Consolidação do menu principal, implementação de exportação de dados em CSV, testes finais e documentação do código.
+**Sprint 4**: Consolidação do menu principal, implementação de exportação de dados em Excel, testes finais e documentação do código.
 
 ---
 
@@ -422,7 +439,7 @@ Este foi meu primeiro semestre da jornada como desenvolvedor, e as lições apre
 <table align="center" style="font-family: roboto; font-size: 14px; text-align: left;">
   <tr>
     <td>1º Semestre:</td>
-    <td><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_1.md">Sistema de Gerenciamento Acadêmico PBLTeX - Python + CLI</a></td>
+    <td><a href="https://github.com/Porygon-Users/API-Porygon/tree/main">Sistema de Gerenciamento Acadêmico PBLTeX - Python + CLI</a></td>
   </tr>
   <tr>
     <td>2º Semestre:</td>
