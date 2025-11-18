@@ -1,7 +1,7 @@
 # API 3º Semestre - Ferramenta de Captura e Armazenamento de Notícias Estratégicas
 
 <div align="center">
-  <a href="https://github.com/seu-usuario/seu-repositorio">
+  <a href="https://github.com/PorygonAPI/Porygon2">
     <img src="https://img.shields.io/badge/GitHub-Repositório Projeto-181717?style=for-the-badge&logo=github" alt="Repositório">
   </a>
 </div>
