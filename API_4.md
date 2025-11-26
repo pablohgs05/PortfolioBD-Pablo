@@ -12,12 +12,6 @@
 
 O projeto consiste em uma aplicação web desenvolvida para processar, visualizar e analisar imagens agrícolas com foco em detecção automática de ervas daninhas através de inteligência artificial. O sistema permite que consultores façam upload de áreas agrícolas via GeoJSON, analistas visualizem mapas de classificação automática gerados por IA, façam edições manuais das marcações quando necessário, e realizem aprovações com rastreamento de tempo. O sistema também fornece dashboards para consulta de métricas de produtividade e acompanhamento de atividades. **Neste semestre, a equipe adotou a prática de separação entre repositórios de client (frontend) e server (backend)**, permitindo desenvolvimento paralelo e maior escalabilidade.
 
-## Parceiros Acadêmicos 🎓
-
-- **Laboratório de Desenvolvimento em Banco de Dados IV** - Prof. Responsável pela disciplina de BD
-- **Programação Avançada em Banco de Dados** - Prof. Responsável pela disciplina de Programação BD
-- **Administração de Banco de Dados** - Prof. Responsável pela administração de BD
-
 ## Cliente
 
 **Visiona** - Empresa especializada em soluções geoespaciais e processamento de imagens agrícolas
