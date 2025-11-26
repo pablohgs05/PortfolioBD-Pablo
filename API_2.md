@@ -12,12 +12,6 @@
 
 O projeto consiste em um sistema desktop desenvolvido em Java para processar, armazenar e analisar dados climáticos provenientes de múltiplas estações meteorológicas no estado de São Paulo. A solução permite o carregamento de arquivos CSV contendo variáveis climáticas (temperatura, umidade, precipitação), validação de dados com detecção de registros suspeitos, geração de relatórios estatísticos por cidade e período, além de cálculos para visualização de gráficos boxplot, fornecendo uma visão analítica e consolidada das condições climáticas regionais.
 
-## Parceiros Acadêmicos 🎓
-
-- **Banco de Dados (Modelagem e Implementação)** - Prof. Responsável pela disciplina de BD
-- **Linguagem de Programação I** - Prof. Responsável pela disciplina de LP
-- **Engenharia de Software I** - Prof. Giuliano Araújo Bertoti
-
 ## Tecnologias Adotadas 💻
 
 <div align="center">
