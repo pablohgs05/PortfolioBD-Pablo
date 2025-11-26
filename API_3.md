@@ -12,12 +12,6 @@
 
 A solução proposta visa criar uma aplicação robusta para a coleta automatizada de notícias de múltiplos portais web e APIs públicas, com armazenamento estruturado em banco de dados relacional. O sistema implementa web scraping inteligente, categorização por tags e filtros avançados de pesquisa, permitindo que usuários capturem, organizem e recuperem informações estratégicas de forma eficiente e contextualizada.
 
-## Parceiros Acadêmicos 🎓
-
-- **Programação de Banco de Dados** - Prof.ª Juliana Forin Pasquini Martinez
-- **Linguagem de Programação II** - Prof. Lucas Gonçalves Nadalete
-- **Laboratório de Desenvolvimento em Banco de Dados III** - Prof. Giuliano Araújo Bertoti
-
 ## Tecnologias Adotadas 💻
 
 <div align="center">
