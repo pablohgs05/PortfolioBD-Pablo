@@ -12,12 +12,6 @@
 
 O projeto consiste em um sistema de informação em linha de comando (CLI) desenvolvido em Python para apoiar a instituição PBLTeX, especializada em cursos práticos aplicando a metodologia Problem Based Learning. O sistema gerencia turmas, grupos de alunos, professores, ciclos de entrega e scores parciais, permitindo o cálculo do FEE (Fator de Ensino Evolutivo), a geração de relatórios consolidados e a exportação de dados para análise educacional, tudo executado inteiramente no terminal da IDE sem necessidade de interface web. Os dados são armazenados em arquivos Excel, permitindo fácil manipulação e compartilhamento.
 
-## Parceiros Acadêmicos 🎓
-
-- **Programação em Python** - Prof. Responsável pela disciplina de Programação
-- **Banco de Dados I** - Prof. Responsável pela disciplina de BD
-- **Engenharia de Software I** - Prof. Responsável pela disciplina de ES
-
 ## Tecnologias Adotadas 💻
 
 <div align="center">
