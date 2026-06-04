@@ -585,31 +585,92 @@ Nosso pipeline de CI/CD implementa:
 
 ---
 
-## Aprendizados e Diferencial Técnico 💡
+---
 
-Este projeto foi uma oportunidade única de aprofundamento em **desenvolvimento frontend moderno e escalável**. Dentre os principais aprendizados:
+## Aprendizados Efetivos 📚
 
-1. **Arquitetura de Componentes em Grande Escala**: Aprendi a estruturar aplicações Vue.js com múltiplos dashboards e páginas complexas mantendo componentes desacoplados e reutilizáveis.
+Este projeto foi fundamental para consolidar minha compreensão de desenvolvimento frontend moderno em larga escala:
 
-2. **Gestão de Estado Complexo**: Implementação de store centralizada para sincronização eficiente de dados entre componentes e persistência de cache.
+### Arquitetura de Componentes Vue em Escala
 
-3. **Otimização de Performance**: Técnicas de lazy loading, code splitting e virtual scrolling para manter a aplicação responsiva mesmo com grandes volumes de dados.
+Aprendi a estruturar aplicações Vue.js complexas com múltiplos dashboards mantendo componentes bem desacoplados, reutilizáveis e testáveis. A decomposição cuidadosa em componentes menores facilitou a manutenção e permitiu que múltiplos membros da equipe trabalhassem em paralelo sem conflitos.
 
-4. **Integração com APIs**: Padrão de serviços abstraindo requisições HTTP, tratamento robusto de erros e retry automático.
+### Gestão de Estado Avançada
 
-5. **Responsividade e Acessibilidade**: Design adaptativo para múltiplos dispositivos e conformidade com padrões de acessibilidade web.
+Implementei um sistema robusto de state management utilizando Pinia, gerenciando complexos fluxos de dados como autenticação, caching, notificações e histórico de filtros. Compreendi deeply os benefícios de centralizar a lógica de estado e como isso facilita debug e testes.
 
-6. **Colaboração em Equipe Ágil**: Experiência em Scrum com sprints de 2-3 semanas, daily standups, retrospectivas e refinamento contínuo de requisitos.
+### Performance em Aplicações Pesadas de Dados
 
-7. **DevOps e CI/CD**: Compreensão profunda de pipelines automatizados, containerização Docker e boas práticas de deployment.
+Trabalhei com técnicas avançadas de otimização incluindo lazy loading, code splitting, virtual scrolling e caching inteligente. Compreendi como cada decisão de design impacta diretamente na experiência do usuário com dashboards de grande volume de dados.
+
+### Integração API e Tratamento de Erros
+
+Desenvolvi uma camada de serviços robusta que abstrai as chamadas HTTP com tratamento centralizado de erros, retry automático, interceptadores de autenticação e logging. Aprendi a importância de uma camada de abstração bem desenhada.
+
+### Responsividade e Acessibilidade
+
+Implementei dashboards que funcionam perfeitamente em desktop, tablets e smartphones, além de garantir conformidade com padrões WCAG 2.1 para acessibilidade. Apreciéi como esses requisitos não são "extras" mas parte integral de uma aplicação profissional.
+
+### Trabalho em Equipe Ágil e DevOps
+
+Participei de um ciclo completo de Scrum com standups diários, planejamento, retrospectivas e refinamento contínuo. Compreendi como padrões bem definidos (commits, PRs, CI/CD) facilitam a colaboração em equipes de múltiplos desenvolvedores.
 
 ---
 
-## Conclusão 🎓
+## Competências Desenvolvidas 🏆
 
-O projeto Neo Horizon foi fundamental para consolidar meu conhecimento em **desenvolvimento frontend profissional** com Vue.js, aplicando padrões de arquitetura, performance e qualidade de código em larga escala. A experiência de trabalhar em uma equipe multidisciplinar com foco em entrega contínua e melhoria constante preparou-me para desafios mais complexos em futuras aplicações web.
+### Hard Skills
 
-A integração entre interface de usuário e backend robusto permitiu entregar uma solução que realmente transforma dados brutos em inteligência estratégica, impactando positivamente a gestão de projetos na Necto.
+| Tecnologia/Metodologia | Proficiência | Classificação |
+|------------------------|--------------|---------------|
+| Vue.js 3 | ⭐⭐⭐⭐⭐ | Sei fazer com autonomia |
+| JavaScript ES6+ | ⭐⭐⭐⭐⭐ | Sei fazer com autonomia |
+| Vuetify (Material Design) | ⭐⭐⭐⭐☆ | Sei fazer com ajuda |
+| Chart.js / ApexCharts | ⭐⭐⭐⭐☆ | Sei fazer com ajuda |
+| Axios / Requisições HTTP | ⭐⭐⭐⭐⭐ | Sei fazer com autonomia |
+| Pinia (State Management) | ⭐⭐⭐⭐☆ | Sei fazer com ajuda |
+| Composition API (Vue 3) | ⭐⭐⭐⭐⭐ | Sei fazer com autonomia |
+| Responsividade / Mobile-First | ⭐⭐⭐⭐⭐ | Sei fazer com autonomia |
+| Git/Versionamento | ⭐⭐⭐⭐⭐ | Sei fazer com autonomia |
+| Docker / Containerização | ⭐⭐⭐⭐☆ | Sei fazer com ajuda |
+
+### Soft Skills
+
+| Habilidade | Descrição |
+|-----------|-----------|
+| **Resolução de Problemas Complexos** | Implementei soluções sofisticadas para renderizar e interagir com grandes volumes de dados em tempo real sem comprometer performance. |
+| **Pensamento Crítico** | Analisei requisitos de negócio e sugeri arquiteturas de frontend escaláveis e mantíveis de longo prazo. |
+| **Comunicação Técnica** | Participei ativamente de daily standups, code reviews e retrospectivas, articulando desafios técnicos de forma clara. |
+| **Trabalho em Equipe** | Colaborei com backend team através de APIs bem definidas, realizei code reviews construtivos e mentorei desenvolvedores juniores. |
+| **Adaptabilidade** | Aprendi Composition API, Pinia, Vuetify e bibliotecas de gráficos durante o projeto, adaptando-me rapidamente a novos padrões. |
+| **Atenção a Detalhes** | Validei acessibilidade, responsividade, performance e user experience de forma rigorosa. |
+| **Gestão de Tempo** | Organizei sprints de 2-3 semanas, priorizando features de valor alto e mantendo cadência de delivery. |
+
+---
+
+## Como Contribui para o Projeto 🔧
+
+Minha contribuição foi distribuída entre as três sprints:
+
+**Sprint 1** (08/09 - 28/09): Arquitetura inicial da aplicação Vue.js, setup de componentes base (layout, navbar, sidebar), integração com backend em desenvolvimento e criação de dashboards iniciais de métricas de alto nível.
+
+**Sprint 2** (06/10 - 26/10): Implementação de relatórios detalhados com gráficos interativos, sistema modular de filtros avançados, otimizações de performance com lazy loading e refatoração de layouts para responsividade total.
+
+**Sprint 3** (03/11 - 23/11): Melhorias finais de UX/UI, implementação de estado global robusto, testes E2E, documentação de componentes e suporte ao DevOps (containerização Docker do frontend).
+
+---
+
+## Reflexão Final 💭
+
+Este projeto consolidou meu entendimento de como construir aplicações frontend profissionais que realmente agregam valor a usuários reais. Através do "Dashboard de Inteligência de Negócios Neo Horizon", aprendi que qualidade em frontend vai muito além de "fazer funcionar":
+
+- Arquitetura bem pensada que cresce com o projeto
+- Performance é uma feature, não um detalhe
+- Acessibilidade beneficia todos, não apenas pessoas com deficiências
+- DevOps adequado permite que equipes trabalhem em paralelo sem chaos
+- Comunicação clara com a equipe (através de commits, PRs, código legível) é tão importante quanto o código em si
+
+Estou preparado para construir aplicações frontend ainda mais complexas e impactantes, aplicando todos esses princípios em contextos ainda mais desafiadores.
 
 ---
 
