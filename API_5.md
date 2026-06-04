@@ -1,7 +1,7 @@
 # API 5º Semestre - Dashboard de Inteligência de Negócios para Gestão de Projetos - Neo Horizon
 
 <div align="center">
-  <a href="https://github.com/FatecNeoHorizon/API_5SEM_FRONTEND">
+  <a href="https://github.com/FatecNeoHorizon/API_5S">
     <img src="https://img.shields.io/badge/GitHub-Repositório Projeto-181717?style=for-the-badge&logo=github" alt="Repositório">
   </a>
 </div>
