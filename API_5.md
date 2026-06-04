@@ -611,3 +611,38 @@ O projeto Neo Horizon foi fundamental para consolidar meu conhecimento em **dese
 
 A integração entre interface de usuário e backend robusto permitiu entregar uma solução que realmente transforma dados brutos em inteligência estratégica, impactando positivamente a gestão de projetos na Necto.
 
+---
+
+<div align="center">
+
+## Navegação entre Projetos 🔗
+
+<table align="center" style="font-family: roboto; font-size: 14px; text-align: left;">
+  <tr>
+    <td>1º Semestre:</td>
+    <td><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_1.md">Sistema de Gerenciamento Acadêmico PBLTeX - Python + CLI</a></td>
+  </tr>
+  <tr>
+    <td>2º Semestre:</td>
+    <td><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_2.md">Sistema de Análise e Gestão de Dados Climáticos - ViraCorp</a></td>
+  </tr>
+  <tr>
+    <td>3º Semestre:</td>
+    <td><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_3.md">Ferramenta de Captura e Armazenamento de Notícias Estratégicas</a></td>
+  </tr>
+  <tr>
+    <td>4º Semestre:</td>
+    <td><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_4.md">Sistema de Processamento e Análise de Imagens Agrícolas - Visiona</a></td>
+  </tr>
+  <tr>
+    <td>5º Semestre:</td>
+    <td><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_5.md">Dashboard de Inteligência de Negócios para Gestão de Projetos - Neo Horizon</a></td>
+  </tr>
+  <tr>
+    <td>6º Semestre:</td>
+    <td><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_6.md">API 6</a></td>
+  </tr>
+</table>
+
+</div>
+
