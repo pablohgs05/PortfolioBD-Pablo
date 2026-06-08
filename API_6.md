@@ -94,23 +94,11 @@ Responsável pelo processamento e inteligência dos dados:
 
 ### Desenvolvimento Full-Stack (Frontend Vue.js 3 + TypeScript)
 
-Assumi responsabilidade principal na implementação da camada de apresentação utilizando Vue.js 3 com TypeScript e Vite. Minhas contribuições cobriram toda jornada do usuário na aplicação, desde autenticação até visualização avançada de dados geográficos com inteligência artificial.
+Atuei principalmente no desenvolvimento full-stack com foco em frontend, sendo responsável pela implementação da interface da aplicação em Vue.js 3 com TypeScript e sua integração com os serviços backend.
 
-**Autenticação & Onboarding**: Implementei tela de login responsiva com validação de credenciais, integração segura com JWT backend, fluxo de compartilhamento de consentimento (LoginSharingConsentPopup) para LGPD, e redirecionamento pós-login para dashboard apropriado. Também contribuí para registro de usuários (Cadastro.vue) com validação robusta de termos, tratamento de status PENDING e UX refinada com acessibilidade.
+Minhas contribuições abrangeram a construção das principais funcionalidades do sistema, incluindo autenticação e gestão de usuários, visualização de dados geográficos por meio de mapas interativos, exibição de previsões com modelos de séries temporais e painéis administrativos com logs e controles de acesso. Também participei ativamente da integração com APIs, tratamento de erros, organização da arquitetura frontend e padronização do código.
 
-**Gestão de Usuários Administrativa**: Criei página completa AdminUsuarios.vue com tabela paginada avançada, filtros por nome/email/status, controles para aprovar/rejeitar/ativar/bloquear usuários com confirmações seguras, mudança de papéis (promover a ADMIN), edição de emails com auditoria centralizada. Implementei serviços Axios com interceptadores JWT, tratamento centralizado de erros 401/403/500, e retry automático em falhas temporárias.
-
-**Visualização Geográfica com Mapa de Calor**: Desenvolvi componente MapaCalor.vue integrando Leaflet.js com GeoJSON de municípios brasileiros, renderizando heatmap interativo colorido baseado em criticidade de indicadores DEC/FEC. Implementei sistema robusto de filtros geo-temporais (ano, mês, distribuidor, estado, conjunto de consumidores, subestação) com recarregamento dinâmico do mapa via API backend, seleção contextual de indicadores e legenda interativa com código de cores padronizado. Integrei serviço mapaService.ts que normaliza dados geográficos complexos, trata carregamento assíncrono e caching de municípios.
-
-**Gráficos de Previsibilidade Prophet**: Criei página PaginaPrevisao.vue exibindo gráficos refinados do modelo Prophet com separação visual clara entre histórico real (dados ANEEL verificados com cores sólidas) e previsão futura (estimativas com intervalo de confiança em gradiente translúcido). Permitindo seleção de região (Norte, Nordeste, Centro-Oeste, Sudeste, Sul) e indicador (DEC - Duração Equivalente de Interrupção, FEC - Frequência Equivalente de Interrupção), consumindo dados de API Python especializada que executa model inference.
-
-**Logs Administrativos**: Desenvolveu AdminLogs.vue com tabela paginada mostrando histórico de operações críticas com filtros por usuário, tipo de operação, período, status. Integrou previsaoService para consumir logs estruturados backend com tratamento sofisticado de timestamps (timezone handling), formatação segura de dados sensíveis (masking de emails parciais), e export para CSV.
-
-**Conta do Usuário e Privacidade**: Implementei MinhaConta.vue permitindo usuários visualizar/editar informações pessoais (nome, email, telefone) com validação em tempo real, bloqueio de caracteres proibidos nos inputs, validação de segurança de status de conta (confirmação de senha para mudanças sensíveis). Fluxos de conformidade LGPD integrados (acesso a dados pessoais, download em GDPR-compliant format, requisição de anonimização). Refinei UI em português com pontuações corretas, acessibilidade WCAG 2.1, e responsividade mobile-first.
-
-**Refinamentos UX & Integração Backend**: Ajustes sucessivos de integração backend em ciclo iterativo feedback, normalizando estados de conta, melhorando tratamento granular de erros com mensagens em português apropriadas, garantindo idempotência de operações críticas. Refinei componentes layout (AuthenticatedLayout, AppModulesMenu) para navegação consistente, adicionei guardas de rota para verificação de papéis, e implementei loading states com skeleton screens.
-
-**Qualidade de Código e Padrões**: Aplicava padrão Conventional Commits em todos os 65+ commits, mantendo histórico limpo e rastreável. Realizava refatoração contínua (ATS-98) para melhorar legibilidade e manutenibilidade, eliminava duplicação de código, e garantia conformidade com linting rules do projeto (ESLint + Prettier).
+De forma geral, minha atuação envolveu o desenvolvimento completo da camada de apresentação e a garantia de uma experiência funcional, segura e consistente para o usuário.
 
 <details>
   <summary>📝 Exemplo: Componente MapaCalor.vue com Leaflet.js e Filtros Geo-Temporais</summary>
@@ -721,36 +709,6 @@ refactor(ATS-98): Extrair lógica de normalização para mapaService.ts
 - Pull requests referenciam stories e subtasks
 - Tags semanticamente nomeadas: v1.0.0, hotfix/ATS-119, etc.
 - Documentação no repositório (README, contributing guide, padrões de código)
-
----
-
-## Aprendizados Efetivos 📚
-
-Este projeto me proporcionou aprendizados profundos em múltiplas dimensões:
-
-### Arquitetura Dual Backend com Separação de Tecnologias
-
-Compreendi profundamente como separar responsabilidades de um monolito em dois serviços especializados. Java/Spring Boot é excelente para transações ACID, autenticação segura e APIs REST RESTful. Python é ideal para processamento pesado (ETL), transformações complexas e machine learning. Essa separação permite escalar cada layer independentemente, facilita especialização de equipes e permite evolução tecnológica desacoplada (trocar banco de dados do Java sem afetar Python, por exemplo).
-
-### Integração de Modelos de IA em Aplicações Web
-
-Aprendizado significativo sobre como integrar modelo Prophet (séries temporais) em frontend Vue.js. Prophet não é "black box" - entendi como decompõe séries em trend (tendência), seasonal (sazonalidade) e holiday (efeitos sazonais). Tratei previsões como dados de API normal, separando claramente histórico real de previsão, e fornecendo UX que comunica incerteza (intervalos de confiança 95%) e confiabilidade do modelo. Gráficos mostram faixa de confiança em gradiente translúcido para visibilidade honesta.
-
-### Conformidade LGPD em Plataformas Analíticas Reais
-
-Experiência prática implementando direitos de sujeitos de dados (acesso, correção, anonimização, exclusão) em código real. Aprendi que LGPD não é "checkbox feature a adicionar depois" - deve ser arquitetado desde o início. Versionamento de termos, rastreamento de consentimentos separado de dados de funcionalidade, separação lógica entre dados pessoais (PostgreSQL principal) e dados analíticos públicos (geográficos, agregados). Implementei auditing de operações sensíveis e masking em logs.
-
-### TypeScript Avançado em Projetos Large-Scale
-
-Ganho profundo em utilizar TypeScript além do básico: tipos genéricos complexos para services, interfaces discriminated unions para estado de filtros (`tipo: 'municipio' | 'distribuidor'`), type guards para narrowing seguro, satisfies operator para validação de tipos em tempo de compilação. Type safety salvou inúmeros bugs em refatorações de componentes e transformação de dados do backend.
-
-### Desenvolvimento Incremental com Padrão Git/Jira
-
-Trabalhar com 65+ commits vinculados a tickets Jira ensinou como quebrar features grandes em tarefas pequenas e rastreáveis. Commits atômicos (um conceito lógico por commit), histórico que conta história clara do projeto. Feature flag implementation para merge seguro em develop mesmo com features incompletas. Rebase interativo para limpeza antes de merge.
-
-### Design de Sistemas Escaláveis com Containerização
-
-Experiência com Docker, docker-compose orquestrando múltiplos serviços (Java, Python, PostgreSQL, MongoDB, pgAdmin). Aprendizado sobre isolamento de container, networking entre containers, volumes para persistência, environment variables para configuração. Ambiente de desenvolvimento idêntico ao de produção, facilitando "funciona na minha máquina?" → sim, em container.
 
 ---
 
