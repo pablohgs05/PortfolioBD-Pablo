@@ -1,8 +1,8 @@
 # API 6º Semestre - Plataforma de Análise e Previsibilidade de Indicadores de Qualidade de Energia Elétrica - ATHOS
 
 <div align="center">
-  <a href="https://github.com/AthosFatecSjc">
-    <img src="https://img.shields.io/badge/GitHub-AthosFatecSjc-181717?style=for-the-badge&logo=github" alt="Repositório">
+  <a href="https://github.com/AthosFatecSjc/Athos">
+    <img src="https://img.shields.io/badge/GitHub-Repositório Projeto-181717?style=for-the-badge&logo=github" alt="Repositório">
   </a>
 </div>
 
@@ -10,7 +10,9 @@
 
 **Plataforma de Análise e Previsibilidade de Indicadores de Qualidade de Energia Elétrica (HiATHOS)**
 
-O projeto consiste em uma plataforma analítica web desenvolvida em colaboração com a TECSYS para centralizar, processar e analisar dados públicos regulatórios da ANEEL (Agência Nacional de Energia Elétrica), transformando informações fragmentadas em indicadores estruturados de confiabilidade e qualidade da rede elétrica. A solução automatiza a coleta periódica de dados de distribuidoras de energia, armazena em banco de dados estruturado, oferece visualização geográfica interativa através de mapas de calor (heatmap), e implementa inteligência artificial para previsibilidade de indicadores críticos como DEC (Duração Equivalente de Interrupção) e FEC (Frequência Equivalente de Interrupção). O sistema suporta gestão de usuários com controle de acesso por papéis, compliance LGPD, rastreabilidade de operações via logging centralizado, e arquitetura dual backend (Java REST + Python ETL/Forecasting) para separação de responsabilidades e escalabilidade.
+O projeto consiste em uma plataforma web desenvolvida em parceria com a TECSYS para análise de dados públicos da ANEEL. A solução centraliza, trata e organiza informações de distribuidoras de energia, transformando-as em indicadores estruturados de qualidade do serviço.
+A aplicação permite visualização interativa por meio de mapas de calor, além de utilizar modelos de previsão para análise de indicadores como DEC e FEC. Também contempla gestão de usuários com controle de acesso, rastreabilidade de operações e uma arquitetura baseada em dois backends: um responsável pela API e outro pelo processamento e análise dos dados.
+
 
 ## Cliente
 
@@ -32,27 +34,27 @@ O projeto consiste em uma plataforma analítica web desenvolvida em colaboraçã
 
 ### Descrição das Tecnologias
 
-- **[Vue.js 3](https://vuejs.org/)**: Framework JavaScript progressivo utilizado para desenvolvimento do frontend, permitindo construção de interfaces dinâmicas e reativas. No projeto, Vue.js foi essencial para criar páginas de visualização interativa (MapaCalor com filtros geo-temporais, PaginaPrevisao com gráficos Prophet), páginas administrativas (AdminUsuarios, AdminLogs), e dashboard centralizado com integração seamless via Composition API com TypeScript.
+* **Vue.js 3**: Utilizado no desenvolvimento do frontend para construção de interfaces reativas e dinâmicas, incluindo dashboards, visualizações geográficas e páginas administrativas.
 
-- **[TypeScript](https://www.typescriptlang.org/)**: Superset tipado de JavaScript utilizado em todo o frontend, fornecendo type safety e autocompletar robusto durante desenvolvimento. Implementou tipos customizados para estruturas complexas como Conjunto (dados geográficos), Criticidade (nivelamento de risco), FiltrosMapa (estado de filtros), e schemas de resposta da API, garantindo confiabilidade em aplicações com lógica sofisticada.
+* **TypeScript**: Aplicado em todo o frontend para garantir tipagem estática, maior confiabilidade e organização em estruturas complexas de dados e integração com a API.
 
-- **[Java 21 / Spring Boot 3.x](https://spring.io/projects/spring-boot)**: Framework para desenvolvimento ágil da API REST backend, fornecendo controladores REST robustos para autenticação (Spring Security com JWT), gestão de usuários com controle de papéis (Role-based Access Control), endpoints administrativos para manipulação de dados, integração com flyway para versionamento de banco de dados, e suporte a testes unitários/integração com JUnit e MockMvc.
+* **Java 21 / Spring Boot**: Responsável pelo backend principal da aplicação, oferecendo uma API REST com autenticação via JWT, controle de acesso por perfis e gerenciamento de dados.
 
-- **[Python 3.11+](https://www.python.org/)**: Linguagem utilizada no backend especializado em processamento de dados e inteligência artificial. Python foi escolhido para implementar o pipeline ETL que consome APIs públicas da ANEEL, valida e normaliza dados, e executa transformações complexas de dados energéticos em agregações geográficas e temporais.
+* **Python**: Utilizado no processamento de dados e pipeline ETL, realizando coleta, tratamento e transformação de dados públicos da ANEEL.
 
-- **[Prophet (Facebook)](https://facebook.github.io/prophet/)**: Modelo de previsão de séries temporais baseado em decomposição aditiva implementado em Python, especialmente eficaz em dados com sazonalidade forte (padrões energia elétrica por mês/estação). O modelo gera previsões de DEC e FEC com intervalos de confiança, permitindo que analistas antecipem regiões com risco elevado de interrupções.
+* **Prophet**: Biblioteca de previsão de séries temporais empregada para análise de indicadores como DEC e FEC, permitindo geração de previsões com base em padrões históricos.
 
-- **[PostgreSQL 15+](https://www.postgresql.org/)**: Sistema de gerenciamento de banco de dados relacional utilizado para armazenar dados estruturados da aplicação: tabelas de usuários com status (PENDING/ACTIVE/REJECTED), termos e consentimentos versionados, logs de operações para auditoria, e especialmente o schema ANEEL com tabelas Lim, Sub, Dist, Perdas, Conj, SigIndicador, e Metrics para armazenar indicadores coletados com traçabilidade geográfica e temporal.
+* **PostgreSQL**: Banco de dados relacional principal, responsável pelo armazenamento estruturado dos dados da aplicação e indicadores energéticos.
 
-- **[MongoDB](https://www.mongodb.com/)**: Banco de dados NoSQL utilizado para armazenar logs de aplicação em formato semi-estruturado, permitindo flexibilidade em schemas de eventos e consultas complexas sem schema rígido. Complementa PostgreSQL para casos de uso que requerem escalabilidade horizontal em logs.
+* **MongoDB**: Utilizado para armazenamento de logs e dados semi-estruturados, complementando o PostgreSQL em cenários que exigem maior flexibilidade.
 
-- **[Leaflet.js](https://leafletjs.com/)**: Biblioteca JavaScript de código aberto para mapas interativos utilizada na página MapaCalor, fornecendo visualização GeoJSON de municípios e conjuntos de consumidores com layer de heatmap colorido mostrando criticidade de DEC/FEC por região geográfica, suportando pan, zoom, e seleção de features.
+* **Leaflet.js**: Biblioteca empregada na construção de mapas interativos para visualização geográfica dos indicadores.
 
-- **[Axios](https://axios-http.com/)**: Cliente HTTP utilizado em todos os serviços TypeScript (mapaService, previsaoService, authService, etc.) para requisições à API backend, com interceptadores para injeção automática de JWT e tratamento centralizado de erros e respostas.
+* **Axios**: Cliente HTTP utilizado no frontend para comunicação com a API, incluindo gerenciamento de autenticação e tratamento de respostas.
 
-- **[Docker](https://www.docker.com/)**: Plataforma de containerização que empacota backend Java, backend Python, PostgreSQL, MongoDB, pgAdmin e outros serviços em containers isolados com docker-compose para orquestração, facilitando ambiente de desenvolvimento idêntico ao de produção e simplificando CI/CD.
+* **Docker**: Utilizado para containerização e padronização do ambiente de desenvolvimento e execução da aplicação.
 
-- **[Git / Conventional Commits](https://www.conventionalcommits.org/)**: Sistema de controle de versão utilizado com padrão de commits estruturado (feat:, fix:, style:, refactor:) vinculados a tickets Jira (ATS-3, ATS-28, ATS-100, etc.), permitindo rastreamento claro de features e facilitação de geração automática de changelogs.
+* **Git / Conventional Commits**: Controle de versão com padronização de commits, facilitando rastreabilidade e organização do desenvolvimento.
 
 ---
 
@@ -63,59 +65,20 @@ O projeto consiste em uma plataforma analítica web desenvolvida em colaboraçã
 Este projeto adota uma arquitetura inovadora com **dois backends especializados** que se comunicam através de APIs RESTful e banco de dados compartilhado:
 
 #### Backend Java (Spring Boot)
-Responsável pela camada de apresentação, autenticação, autorização e operações do usuário:
-- **Autenticação & Autorização**: Spring Security com JWT, controle de acesso baseado em papéis (ADMIN, USER)
-- **Gestão de Usuários**: Endpoints CRUD para registro (ATS-3, ATS-7), aprovação/rejeição de usuários (ATS-104), edição de perfil (ATS-56), mudança de email com auditoria (ATS-113)
-- **Conformidade LGPD**: Endpoints para direitos de sujeitos de dados, anonimização de registros pessoais (ATS-86), backup/restore com segurança de dados
-- **Logging & Auditoria**: Sistema centralizado de logs (ATS-4, ATS-35, ATS-37) rastreando operações sensíveis de administrador e eventos de autenticação
-- **Comunicação de Massa**: Endpoints para envio de emails em bulk para notificações de usuários (ATS-118)
-- **Persistência**: Flyway para versionamento de schema, JPA para ORM
+Responsável pela camada de aplicação e regras de negócio:
+- Autenticação e autorização com JWT e controle por papéis (RBAC)
+- Gestão de usuários (CRUD, aprovação, edição e auditoria)
+- Conformidade LGPD (anonimização, controle de consentimento)
+- Logging e auditoria de operações
+- Persistência com JPA e versionamento via Flyway
 
 #### Backend Python (ETL Pipeline)
-Responsável pela coleta, processamento e análise inteligente de dados:
-- **Coleta de Dados ANEEL**: Jobs agendados que consomem APIs públicas de distribuidoras reguladas, validam estrutura de arquivos e normalizam dados (ATS-5, ATS-6)
-- **Pipeline ETL**: Processamento com validação, transformação em agregações geográficas (por estado, distribuidor, conjunto de consumidores), e armazenamento idempotente (ATS-97)
-- **Modelo de Previsibilidade Prophet**: Treinamento automático de modelos de séries temporais para DEC e FEC com histórico, geração de previsões com intervalos de confiança (ATS-15, ATS-123, ATS-124)
-- **Jobs Agendados**: Cron jobs para execução periódica de coleta ANEEL e retreinamento de modelos
-- **Testes Robustos**: Suite completa de testes unitários e integração para validar qualidade do pipeline
-
-### Padrão Cliente-Servidor Distribuído
-
-O projeto segue padrão explícito de separação com **dois repositórios Git independentes**:
-- **Frontend (`frontend-develop`)**: Aplicação Vue.js 3 + TypeScript com Vite, componentes UI Material Design, roteador estruturado
-- **Backend (`backend-develop`)**: Subpastas `backend-java/` e `backend-python/` com docker-compose orquestrando toda stack
-- **Banco de Dados Compartilhado**: PostgreSQL como banco principal, MongoDB para logs (opcional)
-
-Esta separação permite desenvolvimento paralelo, escalabilidade independente de cada camada, e evolução tecnológica desacoplada.
-
-### Requisitos Funcionais
-
-| ID | Requisito | Descrição |
-|:---|:---|:---|
-| **RF-01** | *Registro e Autenticação de Usuários* | Sistema permite auto-registro com email, senha, nome completo e telefone opcional; novo usuário criado com status PENDING; apenas usuários ACTIVE acessam plataforma; suporte a autenticação segura com JWT |
-| **RF-02** | *Gestão Administrativa de Usuários* | Administradores visualizam, filtram, aprovam/rejeitam usuários com justificativa; editam perfis; granting/removal de privilégios admin; anonimização de dados pessoais quando solicitado |
-| **RF-03** | *Termos, Consentimentos e Conformidade* | Sistema exibe Termos de Uso, Aviso de Privacidade, consentimento marketing opcional; registra versionamento de termos; mantém histórico de aceitações |
-| **RF-04** | *Direitos de Sujeito de Dados (LGPD)* | Suporte a requisições de acesso, correção, anonimização ou exclusão de dados pessoais; auditoria de requisições |
-| **RF-05** | *Logging e Auditoria Centralizada* | Sistema registra logs de autenticação, mudanças administrativas e eventos críticos com rastreabilidade completa; acesso restrito a admins; separação lógica de logs |
-| **RF-06** | *Coleta Automática/Manual de Dados ANEEL* | Jobs agendados coletam periodicamente dados públicos ANEEL; admins podem executar coleta manual; suporte a múltiplas distribuidoras |
-| **RF-07** | *Validação e Processamento de Dados* | Pipeline valida estrutura de arquivos coletados; normaliza dados; rejeita dados incompatíveis; armazena com traçabilidade de fonte e batch; previne duplicação |
-| **RF-08** | *Preservação Histórica de Dados* | Sistema preserva histórico de dados válidos, versões de termos, registros de aceitos e eventos; garante consistência entre banco principal, logs e backups |
-| **RF-09** | *Visualização Geográfica de Indicadores* | Sistema exibe heatmap interativo de indicadores DEC/FEC por município/região/distribuidor com Leaflet.js; filtra por ano, mês, estado, distribuidor, grupo de consumidores, subestação |
-| **RF-10** | *Previsibilidade com IA (Prophet)* | Modelo Prophet traina automaticamente em histórico de DEC/FEC; gera previsões com intervalos de confiança; permite análise de tendências futuras |
-
-### Requisitos Não-Funcionais
-
-| ID | Requisito | Descrição |
-|:---|:---|:---|
-| **RNF-01** | *Segurança de Credenciais* | Senhas armazenadas apenas com hash criptográfico; credencial admin inicial não versionada em código; provisioning via mecanismo seguro |
-| **RNF-02** | *Controle de Acesso* | Acesso restrito por papel (ADMIN, USER); dados pessoais e logs acessíveis apenas por admins; aplicação de need-to-know rules |
-| **RNF-03** | *Conformidade LGPD* | Sistema adere a princípios de limitação de propósito, necessidade, adequação, segurança, transparência; coleta apenas dados estritamente necessários |
-| **RNF-04** | *Integridade e Rastreabilidade* | Ações críticas rastreáveis; registros de usuários, termos, logs imutáveis sem sobrescrita indevida |
-| **RNF-05** | *Proteção em Logs* | Senhas, tokens, secrets, cookies nunca registrados; masking de dados pessoais em logs |
-| **RNF-06** | *Retenção e Disposal* | Logs retidos ~6 meses; backups ~90 dias; termos/consentimentos conforme política |
-| **RNF-07** | *Disponibilidade Básica* | Sistema suporta volume inicial de usuários e coleta periódica sem degradação; suporta crescimento futuro |
-| **RNF-08** | *Integrabilidade com Dados Públicos* | Pipeline consome APIs/arquivos públicos ANEEL de forma robusta; validação e tratamento de falhas em origem de dados |
-| **RNF-09** | *Isolamento de Dados* | Dados analíticos geográficos públicos separados de dados pessoais; sem exposição de PII em visualizações |
+Responsável pelo processamento e inteligência dos dados:
+- Coleta automatizada de dados públicos da ANEEL
+- Pipeline ETL com validação e normalização 
+- Agregações geográficas e temporais 
+- Modelos de previsão (Prophet) para indicadores DEC e FEC 
+- Execução de jobs agendados 
 
 ### Cronograma de Desenvolvimento
 
@@ -131,21 +94,21 @@ Esta separação permite desenvolvimento paralelo, escalabilidade independente d
 
 ### Desenvolvimento Full-Stack (Frontend Vue.js 3 + TypeScript)
 
-Como desenvolvedor full-stack especialista em frontend, assumi responsabilidade principal na implementação da camada de apresentação utilizando Vue.js 3 com TypeScript e Vite. Minhas contribuições cobriram toda jornada do usuário na aplicação, desde autenticação até visualização avançada de dados geográficos com inteligência artificial.
+Assumi responsabilidade principal na implementação da camada de apresentação utilizando Vue.js 3 com TypeScript e Vite. Minhas contribuições cobriram toda jornada do usuário na aplicação, desde autenticação até visualização avançada de dados geográficos com inteligência artificial.
 
-**Autenticação & Onboarding** (ATS-28, ATS-27, ATS-3): Implementei tela de login responsiva com validação de credenciais, integração segura com JWT backend, fluxo de compartilhamento de consentimento (LoginSharingConsentPopup) para LGPD, e redirecionamento pós-login para dashboard apropriado. Também contribuí para registro de usuários (Cadastro.vue) com validação robusta de termos, tratamento de status PENDING e UX refinada com acessibilidade.
+**Autenticação & Onboarding**: Implementei tela de login responsiva com validação de credenciais, integração segura com JWT backend, fluxo de compartilhamento de consentimento (LoginSharingConsentPopup) para LGPD, e redirecionamento pós-login para dashboard apropriado. Também contribuí para registro de usuários (Cadastro.vue) com validação robusta de termos, tratamento de status PENDING e UX refinada com acessibilidade.
 
-**Gestão de Usuários Administrativa** (ATS-103, ATS-104, ATS-113): Criei página completa AdminUsuarios.vue com tabela paginada avançada, filtros por nome/email/status, controles para aprovar/rejeitar/ativar/bloquear usuários com confirmações seguras, mudança de papéis (promover a ADMIN), edição de emails com auditoria centralizada. Implementei serviços Axios com interceptadores JWT, tratamento centralizado de erros 401/403/500, e retry automático em falhas temporárias.
+**Gestão de Usuários Administrativa**: Criei página completa AdminUsuarios.vue com tabela paginada avançada, filtros por nome/email/status, controles para aprovar/rejeitar/ativar/bloquear usuários com confirmações seguras, mudança de papéis (promover a ADMIN), edição de emails com auditoria centralizada. Implementei serviços Axios com interceptadores JWT, tratamento centralizado de erros 401/403/500, e retry automático em falhas temporárias.
 
-**Visualização Geográfica com Mapa de Calor** (ATS-100, ATS-115): Desenvolvi componente MapaCalor.vue integrando Leaflet.js com GeoJSON de municípios brasileiros, renderizando heatmap interativo colorido baseado em criticidade de indicadores DEC/FEC. Implementei sistema robusto de filtros geo-temporais (ano, mês, distribuidor, estado, conjunto de consumidores, subestação) com recarregamento dinâmico do mapa via API backend, seleção contextual de indicadores e legenda interativa com código de cores padronizado. Integrei serviço mapaService.ts que normaliza dados geográficos complexos, trata carregamento assíncrono e caching de municípios.
+**Visualização Geográfica com Mapa de Calor**: Desenvolvi componente MapaCalor.vue integrando Leaflet.js com GeoJSON de municípios brasileiros, renderizando heatmap interativo colorido baseado em criticidade de indicadores DEC/FEC. Implementei sistema robusto de filtros geo-temporais (ano, mês, distribuidor, estado, conjunto de consumidores, subestação) com recarregamento dinâmico do mapa via API backend, seleção contextual de indicadores e legenda interativa com código de cores padronizado. Integrei serviço mapaService.ts que normaliza dados geográficos complexos, trata carregamento assíncrono e caching de municípios.
 
-**Gráficos de Previsibilidade Prophet** (ATS-124, ATS-123): Criei página PaginaPrevisao.vue exibindo gráficos refinados do modelo Prophet com separação visual clara entre histórico real (dados ANEEL verificados com cores sólidas) e previsão futura (estimativas com intervalo de confiança em gradiente translúcido). Permitindo seleção de região (Norte, Nordeste, Centro-Oeste, Sudeste, Sul) e indicador (DEC - Duração Equivalente de Interrupção, FEC - Frequência Equivalente de Interrupção), consumindo dados de API Python especializada que executa model inference.
+**Gráficos de Previsibilidade Prophet**: Criei página PaginaPrevisao.vue exibindo gráficos refinados do modelo Prophet com separação visual clara entre histórico real (dados ANEEL verificados com cores sólidas) e previsão futura (estimativas com intervalo de confiança em gradiente translúcido). Permitindo seleção de região (Norte, Nordeste, Centro-Oeste, Sudeste, Sul) e indicador (DEC - Duração Equivalente de Interrupção, FEC - Frequência Equivalente de Interrupção), consumindo dados de API Python especializada que executa model inference.
 
-**Logs Administrativos** (ATS-37, ATS-35): Desenvolveu AdminLogs.vue com tabela paginada mostrando histórico de operações críticas com filtros por usuário, tipo de operação, período, status. Integrou previsaoService para consumir logs estruturados backend com tratamento sofisticado de timestamps (timezone handling), formatação segura de dados sensíveis (masking de emails parciais), e export para CSV.
+**Logs Administrativos**: Desenvolveu AdminLogs.vue com tabela paginada mostrando histórico de operações críticas com filtros por usuário, tipo de operação, período, status. Integrou previsaoService para consumir logs estruturados backend com tratamento sofisticado de timestamps (timezone handling), formatação segura de dados sensíveis (masking de emails parciais), e export para CSV.
 
-**Conta do Usuário e Privacidade** (ATS-55, ATS-56, ATS-86, ATS-87): Implementei MinhaConta.vue permitindo usuários visualizar/editar informações pessoais (nome, email, telefone) com validação em tempo real, bloqueio de caracteres proibidos nos inputs, validação de segurança de status de conta (confirmação de senha para mudanças sensíveis). Fluxos de conformidade LGPD integrados (acesso a dados pessoais, download em GDPR-compliant format, requisição de anonimização). Refinei UI em português com pontuações corretas, acessibilidade WCAG 2.1, e responsividade mobile-first.
+**Conta do Usuário e Privacidade**: Implementei MinhaConta.vue permitindo usuários visualizar/editar informações pessoais (nome, email, telefone) com validação em tempo real, bloqueio de caracteres proibidos nos inputs, validação de segurança de status de conta (confirmação de senha para mudanças sensíveis). Fluxos de conformidade LGPD integrados (acesso a dados pessoais, download em GDPR-compliant format, requisição de anonimização). Refinei UI em português com pontuações corretas, acessibilidade WCAG 2.1, e responsividade mobile-first.
 
-**Refinamentos UX & Integração Backend** (ATS-81, ATS-97, ATS-119, ATS-127): Ajustes sucessivos de integração backend em ciclo iterativo feedback, normalizando estados de conta, melhorando tratamento granular de erros com mensagens em português apropriadas, garantindo idempotência de operações críticas. Refinei componentes layout (AuthenticatedLayout, AppModulesMenu) para navegação consistente, adicionei guardas de rota para verificação de papéis, e implementei loading states com skeleton screens.
+**Refinamentos UX & Integração Backend**: Ajustes sucessivos de integração backend em ciclo iterativo feedback, normalizando estados de conta, melhorando tratamento granular de erros com mensagens em português apropriadas, garantindo idempotência de operações críticas. Refinei componentes layout (AuthenticatedLayout, AppModulesMenu) para navegação consistente, adicionei guardas de rota para verificação de papéis, e implementei loading states com skeleton screens.
 
 **Qualidade de Código e Padrões**: Aplicava padrão Conventional Commits em todos os 65+ commits, mantendo histórico limpo e rastreável. Realizava refatoração contínua (ATS-98) para melhorar legibilidade e manutenibilidade, eliminava duplicação de código, e garantia conformidade com linting rules do projeto (ESLint + Prettier).
 
@@ -734,53 +697,6 @@ const mudarIndicador = async (novoIndicador: 'DEC' | 'FEC') => {
 
 ---
 
-## Como Contribui para o Projeto 🔧
-
-### Sprint 1: Fundação de Autenticação & Onboarding (23 Mar - 06 Abr)
-
-**Objetivo**: Estabelecer infraestrutura segura de autenticação JWT, permitir registro de usuários e criar interface de login polida.
-
-**Tarefas Implementadas**:
-- **ATS-28 (Login Screen)**: Tela de login responsiva com validação de credenciais, integração JWT, redirecionamento pós-sucesso, e tratamento de erros. Incluí compartilhamento de consentimento (LoginSharingConsentPopup) para LGPD e UI com pontuações em português refinadas (ATS-87, ATS-28).
-- **ATS-3 (Registro de Usuários)**: Integração de endpoint backend para criar usuários com status PENDING, implementação no frontend com validação de password, email único e aceite de termos versionados.
-- **ATS-56 (My Account)**: Página pessoal (MinhaConta.vue) permitindo usuário visualizar/editar nome e telefone, com validação de segurança e bloqueio de caracteres proibidos nos inputs (ATS-55).
-
-**Resultado**: Fluxo completo de onboarding de novo usuário, do registro até primeira autenticação com JWT funcionando e segurança básica estabelecida.
-
----
-
-### Sprint 2: Características Core - Gestão, Análise & Visualização (07 Abr - 03 Mai)
-
-**Objetivo**: Implementar gestão administrativa de usuários, logging centralizado, visualização geográfica com mapa de calor, e suporte a conformidade LGPD.
-
-**Tarefas Implementadas**:
-- **ATS-103 (Gestão de Usuários)**: Tela AdminUsuarios.vue com tabela paginada, filtros avançados de busca, seleção múltipla, controles para aprovar/rejeitar/ativar/bloquear usuários. Integração completa com endpoints backend de CRUD de usuários (ATS-104, ATS-113).
-- **ATS-100 (Mapa de Calor)**: Componente MapaCalor.vue integrando Leaflet.js com GeoJSON, renderizando heatmap colorido de DEC/FEC por município, com legenda interativa e seleção de features.
-- **ATS-115 (Filtros Mensais)**: Adição de filtro de mês a MapaCalor, permitindo análise temporal de indicadores; refatoração de grid responsiva de filtros (ATS-115).
-- **ATS-37 (Admin Logs)**: Tela AdminLogs.vue exibindo histórico de operações administrativas com paginação, filtros e formatação de timestamps.
-- **ATS-86 (Compliance LGPD)**: Suporte a fluxo de anonimização de usuários e exclusão de dados pessoais; versionamento de termos (ATS-119).
-
-**Resultado**: Plataforma completa de administração com gestão de usuários, auditoria centralizada, visualização geográfica interativa de dados ANEEL.
-
----
-
-### Sprint 3: Inteligência Artificial & Refinamento Final (04 Mai - 31 Mai)
-
-**Objetivo**: Integrar modelo Prophet para previsibilidade, implementar email em bulk, refinar qualidade geral, e solidificar compliance regulatória.
-
-**Tarefas Implementadas**:
-- **ATS-124 (Gráficos de Previsão Prophet)**: Página PaginaPrevisao.vue exibindo gráficos do modelo Prophet com histórico real vs. previsão futura, seleção de região e indicador. Integração com API Python especializada que treina e executa Prophet.
-- **ATS-123 (Modelo Treinado)**: Refinamentos no pipeline Python de treinamento do Prophet com dados históricos de DEC/FEC, implementação de agendamento automático.
-- **ATS-118 (Email em Bulk)**: Implementação de endpoints para envio de emails em bulk para notificações de usuários, com testes e logging.
-- **ATS-127 (Sanitização Pós-Backup)**: Mecanismo para garantir que dados anonimizados não sejam restaurados de backups, reapplicando anonimização quando necessário.
-- **Refatoração Geral** (ATS-98, ATS-97): Refatoração de estrutura de código para melhorar legibilidade, eliminar duplicação; melhorias de performance em ETL Python.
-
-**Resultado**: Plataforma completa com inteligência artificial integrada, pronta para presentação em banca de defesa de projeto acadêmico.
-
----
-
----
-
 ## Padrões de Desenvolvimento Aplicados 🛠️
 
 Durante os 3 meses do projeto, mantive rigorosos padrões de desenvolvimento documentados no repositório GitHub e coordenados via Jira:
@@ -799,19 +715,6 @@ refactor(ATS-98): Extrair lógica de normalização para mapaService.ts
 - Reduz duplicação no componente MapaCalor
 - Facilita teste unitário de transformação de dados
 ```
-
-### Code Review e Qualidade
-- Todos os Pull Requests passaram por revisão obrigatória com outro developer
-- Checklist de conformidade: testes, linting, acessibilidade, documentação
-- Análise de qualidade ESLint + Prettier para padronização automática
-- Teste E2E com Playwright para fluxos críticos (login, aprovação de usuário, interação com mapa)
-
-### Integração Contínua e DevOps
-Pipeline CI/CD implementado com:
-- **Build Automático**: Compilação Vite a cada push com verificação de tipos TypeScript
-- **Testes Automatizados**: Suite de testes unitários (Vitest) + integração (MSW mock API)
-- **Análise Estática**: ESLint, TypeScript strict mode, SonarQube para vulnerabilidades
-- **Deploy Automático**: Publicação para staging ao merge em develop; produção manual com aprovação
 
 ### Rastreabilidade Git & Jira
 - Cada commit linkado a issue ATS-XXX
@@ -887,7 +790,7 @@ Experiência com Docker, docker-compose orquestrando múltiplos serviços (Java,
 
 ---
 
-## Como Contribui para o Projeto 🔧
+## Contribuição individual por sprint 🔧
 
 Minha contribuição foi distribuída ao longo de 65+ commits através de 3 sprints de desenvolvimento:
 
@@ -941,19 +844,7 @@ Minha contribuição foi distribuída ao longo de 65+ commits através de 3 spri
 
 ## Reflexão Final 💭
 
-O projeto Athos representou um salto significativo em minha maturidade como desenvolvedor. Diferente de projetos anteriores focados em CRUD straightforward ou dashboards simples, este projeto me exigiu pensar em **sistemas complexos com múltiplas dimensões interconectadas**: segurança (LGPD, autenticação, conformidade regulatória), dados (ETL, normalização, armazenamento distribuído), visualização (geográfica com Leaflet), e inteligência artificial (Prophet com séries temporais).
-
-Trabalhar em arquitetura dual backend foi particularmente transformador. Aprendi profundamente que não existe "melhor tecnologia" - existe "tecnologia ideal para este problema específico". Java/Spring é ótimo para transações seguras e negócio core. Python é ótimo para processamento pesado e ML. Escolher errado custa performance, escalabilidade e sanidade da equipe. Essa experiência mudou fundamentalmente como penso em design de sistema.
-
-A dimensão geográfica do projeto (mapas, heatmaps, GeoJSON, coordenadas) adicionou complexidade que transcendeu "CRUD de TODO list". Compreender como dados públicos de energia elétrica flui através da pipeline ETL, é normalizado e agregado por estado/distribuidor/grupo de consumidores, e então visualizado em um mapa que um analista real usará para tomar decisão de investimento de bilhões em infraestrutura - isso é muito mais significativo do que conceitos teóricos de faculdade.
-
-A conformidade LGPD impôs pensamento disciplinado sobre dados pessoais, direitos de usuários, auditoria, e privacidade. Implementar direitos de sujeitos de dados (acesso, anonimização, exclusão) em código real ensinou que conformidade não é "feature a adicionar depois" - deve ser arquitetada desde o primeiro commit, influenciando estrutura de banco de dados, schemas, logging, e restore procedures.
-
-Trabalhando principalmente sozinho (com um outro desenvolvedor backend core em paralelo), aprendi autonomia: priorizar o que é essencial para MVP, comunicar blockers claramente, tomar decisões arquiteturais sem "esperar permissão", ser responsável pela qualidade entregue. Isso amadureceu-me profissionalmente - não sou mais "desenvolvedor executando tarefas", sou "engenheiro responsável por features de ponta a ponta".
-
-Se tivesse oportunidade de fazer novamente, exploraria mais profundamente o modelo Prophet: ablation studies para entender quais features mais contribuem para acurácia, experimentaria com diferentes sazonalidades, talvez implementado forecasting intervals adaptativos. Também gostaria de ter dedicado mais tempo a otimização de performance da página MapaCalor com dataset maior (virtual scrolling de features, tile-based clustering, otimização de renderização Leaflet).
-
-Athos será com certeza foco principal da minha apresentação final de banca de defesa. É projeto que tenho genuíno orgulho técnico e estético: que demonstra que consigo navegar complexidade real, trabalhar em constraints de equipe pequena, entregar algo que funciona, importa, e é usável por pessoas reais para tomar decisões significativas.
+O projeto Athos representou um avanço significativo na minha formação ao integrar, em uma única solução, conceitos de arquitetura, tratamento de dados, visualização e inteligência artificial. A experiência reforçou a importância de escolher tecnologias adequadas para cada contexto, além de aplicar, na prática, aspectos como LGPD, escalabilidade e organização de sistemas. Também contribuiu diretamente para o desenvolvimento da minha autonomia e capacidade de tomada de decisão, consolidando minha evolução para atuar em projetos mais complexos e próximos de cenários reais.
 
 ---
 
