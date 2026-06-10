@@ -1,4 +1,4 @@
-# API 6º Semestre - Plataforma de Análise e Previsibilidade de Indicadores de Qualidade de Energia Elétrica - ATHOS
+# API 6º Semestre - Plataforma de Análise e Previsibilidade de Indicadores de Qualidade de Energia Elétrica - HiAthos
 
 <div align="center">
   <a href="https://github.com/AthosFatecSjc/Athos">
