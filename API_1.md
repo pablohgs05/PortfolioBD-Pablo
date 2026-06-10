@@ -453,7 +453,7 @@ Este foi meu primeiro semestre da jornada como desenvolvedor, e as lições apre
   </tr>
   <tr>
     <td>6º Semestre:</td>
-    <td><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_6.md">API 6</a></td>
+    <td><a href="https://github.com/pablohgs05/PortfolioBD-Pablo/blob/main/API_6.md">Plataforma de Análise & Previsibilidade - HiAthos</a></td>
   </tr>
 </table>
 
