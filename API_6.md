@@ -652,39 +652,6 @@ const mudarIndicador = async (novoIndicador: 'DEC' | 'FEC') => {
 
 ---
 
-## Competências Desenvolvidas 🏆
-
-### Hard Skills
-
-| Competência | Nível | Classificação | Descrição |
-|:---|:---:|:---|:---|
-| **Vue.js 3** | ⭐⭐⭐⭐⭐ | Avançado | Composição API, Reactivity, lifecycle hooks, componentes complexos multi-estado |
-| **TypeScript** | ⭐⭐⭐⭐⭐ | Avançado | Tipos avançados, interfaces, discriminated unions, generics, type guards |
-| **Leaflet.js & GeoJSON** | ⭐⭐⭐⭐☆ | Avançado | Mapas interativos, layers, heatmaps, GeoJSON, eventos de mapa |
-| **JavaScript ES6+** | ⭐⭐⭐⭐⭐ | Avançado | Async/await, promises, destructuring, spread operator, closures |
-| **Axios & REST APIs** | ⭐⭐⭐⭐⭐ | Avançado | Interceptadores, tratamento de erros, JWT, requisições estruturadas |
-| **HTML5 & CSS3** | ⭐⭐⭐⭐☆ | Avançado | Responsividade, flexbox, grid, acessibilidade, semântica |
-| **Vite & Build Tools** | ⭐⭐⭐⭐☆ | Intermediário-Avançado | Configuração, otimização de bundle, hot module replacement |
-| **Git & Conventional Commits** | ⭐⭐⭐⭐⭐ | Avançado | Branching strategy, commits semânticos, rebase, cherry-pick, PR reviews |
-| **Docker & Containers** | ⭐⭐⭐⭐☆ | Intermediário-Avançado | docker-compose, networking, volumes, multi-container orchestration |
-| **PostgreSQL & Banco de Dados** | ⭐⭐⭐⭐☆ | Intermediário | Schemas, foreign keys, JOINs, índices, modeling relacional |
-| **Java Spring Boot** | ⭐⭐⭐☆☆ | Intermediário | Integração e consumo de APIs backend, compreensão de conceitos REST |
-| **Python & ETL Basics** | ⭐⭐⭐☆☆ | Intermediário | Compreensão de pipeline ETL, processamento de dados, Prophet basics |
-
-### Soft Skills
-
-| Competência | Descrição |
-|:---|:---|
-| **Pensamento Analítico & Resolução de Problemas** | Decomposição de problemas complexos (arquitetura geográfica, previsibilidade) em componentes implementáveis; debug metódico de issues em sistema distribuído |
-| **Comunicação Técnica em Inglês & Português** | Commits e PRs bem documentados; documentação de código; apresentação de soluções a stakeholders técnicos |
-| **Trabalho em Equipe Distribuída** | Colaboração eficaz com outro desenvolvedor core; sincronização via PRs e reviews; respeito a padrões de projeto |
-| **Adaptabilidade Técnica** | Aprendizado rápido de novas tecnologias (Leaflet, Prophet, PostgreSQL) conforme demandas; pivots de arquitetura quando necessário |
-| **Gestão de Escopo & Priorização** | Execução de features dentro de sprints; identificação de MVP vs. nice-to-have; comunicação clara de trade-offs |
-| **Atenção a Detalhes & Quality Mindset** | Validação de conformidade LGPD em código; testes de edge cases em filtros geográficos; refinamentos UX baseados em feedback |
-| **Mentalidade de Aprendizado Contínuo** | Busca ativa por melhores práticas em frontend moderno; refatoração contínua; experimentação com patterns novos |
-
----
-
 ## Padrões de Desenvolvimento Aplicados 🛠️
 
 Durante os 3 meses do projeto, mantive rigorosos padrões de desenvolvimento documentados no repositório GitHub e coordenados via Jira:
