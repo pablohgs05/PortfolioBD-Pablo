@@ -6,9 +6,13 @@
 
 ### 💻 Desenvolvimento Full-Stack • 📊 Dados • ⚙️ Automação
 
-Sou estudante de Banco de Dados pela **FATEC São José dos Campos** e atuo com **análise de dados na área de Engenharia de Manutenção**.
+Sou estudante de Banco de Dados pela **FATEC São José dos Campos** e atuo na **Engenharia de Manutenção da Gerdau**, desenvolvendo soluções para otimização de processos industriais e apoio à tomada de decisão.
 
-Tenho experiência com desenvolvimento de sistemas, análise de dados e construção de soluções voltadas para **tomada de decisão**, sempre buscando evoluir tanto no backend quanto no frontend.
+Possuo experiência em **análise de dados, dashboards e automação de processos**, utilizando ferramentas como **Power BI, Excel, SQL, Python, VBA e SAP GUI Scripting**.
+
+Também atuo no desenvolvimento de aplicações e sistemas internos com **Java, APIs REST e bancos de dados**, além de projetos envolvendo **SAP, SharePoint, Power Apps e aplicações mobile**.
+
+Busco evoluir continuamente em **desenvolvimento full-stack, dados e tecnologia aplicada à indústria**.
 
   </td>
   <td width="32%" align="center" valign="middle">
